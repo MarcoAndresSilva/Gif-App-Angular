@@ -3,6 +3,7 @@ export const environment = {
     companyName : 'Gifs',
     companyNameShort : 'Apps',
     companySlogan : 'Gifs para todos',
+    companyWelcome : 'Bienvenido',
 
     // Apikeys
 
