@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 interface MenuOption {
   label: string;
@@ -9,15 +10,15 @@ interface MenuOption {
 
 @Component({
   selector: 'gifs-side-menu-options',
-  imports: [],
+  imports: [RouterLink, RouterLinkActive],
   templateUrl: 'side-menu-options.component.html'
 })
 export class SideMenuOptionsComponent { 
-  MenuOptions: MenuOption[] = [
+  menuOptions: MenuOption[] = [
     {
       label: 'Trending',
       sublabel: 'Gifs Trending',
-      icon: 'fa-solid fa-fire fa-chart-line',
+      icon: 'fa-solid fa-fire fa-arrow-trend-up',
       route: '/dashboard/trending',
     },
     {
