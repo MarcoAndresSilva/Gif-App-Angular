@@ -6,7 +6,7 @@ export const environment = {
     companyWelcome : 'Bienvenido',
 
     // Apikeys
-
+    giphyApiKey : 'z29P1gtdUTknbqXFj64VHJB1osOyhQ6q'
     // Endpoints
 
     // Urls
