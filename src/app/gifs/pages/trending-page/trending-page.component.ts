@@ -23,4 +23,5 @@ const imageUrls: string[] = [
 })
 export default class TrendingPageComponent {
   gifs = signal(imageUrls);
+  // gifs = signal<string[]>([]);
 }
