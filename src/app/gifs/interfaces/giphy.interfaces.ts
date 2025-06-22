@@ -1,5 +1,5 @@
 export interface GiphyResponse {
-    data:        GipgyItem[];
+    data:       GipgyItem[];
     meta:       Meta;
     pagination: Pagination;
 }

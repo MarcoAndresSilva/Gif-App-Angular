@@ -6,8 +6,7 @@ export const environment = {
     companyWelcome : 'Bienvenido',
 
     // Apikeys
-    giphyApiKey : 'z29P1gtdUTknbqXFj64VHJB1osOyhQ6q'
-    // Endpoints
-
+    giphyApiKey: 'z29P1gtdUTknbqXFj64VHJB1osOyhQ6q',
     // Urls
+    giphyUrl: 'https://api.giphy.com/v1'
 };
