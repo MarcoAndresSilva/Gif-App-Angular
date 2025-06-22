@@ -8,4 +8,5 @@ import { GifListItemComponent } from "./gif-list-item/gif-list-item.component";
 })
 export class GifListComponent {
   gifs = input.required<string[]>();
+  // test de comenarios
 }
