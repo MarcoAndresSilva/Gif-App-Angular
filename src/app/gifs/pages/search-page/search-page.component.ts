@@ -12,10 +12,11 @@ export default class SearchPageComponent {
   gifService = inject(GifService);
   gifs = signal<Gif[]>([]);
 
-  
+
 
   onSearch(query: string) {
     this.gifService.searchGifs(query);
+    this.gifs.set(this.gifService.trendingGifs());
   }
 
 }
