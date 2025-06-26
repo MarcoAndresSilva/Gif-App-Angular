@@ -46,9 +46,9 @@ export class GifService {
             },
         })
         .pipe(
-            map((resp) => GifMapper.mapGiphyItemToGifArray(resp.data)),
-            tap((gifs) => console.log({gifs}))
+            map(({data}) =>data),
+            map((items) => GifMapper.mapGiphyItemToGifArray(items)),
         );
-        
+        // TODO Historial       
     };
 }
