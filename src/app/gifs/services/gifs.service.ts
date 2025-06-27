@@ -1,4 +1,4 @@
-import { inject, Injectable, signal } from '@angular/core';
+import { computed, inject, Injectable, signal } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
 import type  { GiphyResponse } from '../interfaces/giphy.interfaces';
@@ -15,6 +15,7 @@ export class GifService {
     trendingGifsLoading = signal(true);
 
     searchHistory = signal<Record<string, Gif[]>>({});
+    searchHistoryKeys = computed(() => Object.keys(this.searchHistory())) ;  
 
     constructor() {
         this.loadTrendingGifs();
