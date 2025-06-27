@@ -14,6 +14,8 @@ export class GifService {
     trendingGifs = signal<Gif[]>([]);
     trendingGifsLoading = signal(true);
 
+    searchHistory = signal<Record<string, Gif[]>>({});
+
     constructor() {
         this.loadTrendingGifs();
         console.log('Servicio inicializado');
