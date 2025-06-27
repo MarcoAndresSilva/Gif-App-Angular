@@ -51,7 +51,16 @@ export class GifService {
         .pipe(
             map(({data}) =>data),
             map((items) => GifMapper.mapGiphyItemToGifArray(items)),
+
+            // TODO Historial  
+            tap((items) => {
+                this.searchHistory.update((history) => ({
+                    ...history,
+                    [query.toLowerCase()]: items,
+                }));
+            })
         );
-        // TODO Historial       
+         
+
     };
 }
