@@ -22,6 +22,7 @@ export class GifService {
         console.log('Servicio inicializado');
         
     }
+    // TODO: Buscar gifs TST
 
     loadTrendingGifs(){
         this.http
