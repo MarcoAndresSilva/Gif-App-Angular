@@ -16,7 +16,7 @@ interface MenuOption {
 })
 export class SideMenuOptionsComponent { 
 
-   gifService = inject(GifService);
+  gifService = inject(GifService);
 
   menuOptions: MenuOption[] = [
     {

@@ -53,7 +53,6 @@ export class GifService {
             map(({data}) =>data),
             map((items) => GifMapper.mapGiphyItemToGifArray(items)),
 
-            // TODO Historial  
             tap((items) => {
                 this.searchHistory.update((history) => ({
                     ...history,
@@ -61,7 +60,6 @@ export class GifService {
                 }));
             })
         );
-         
 
     };
 }
