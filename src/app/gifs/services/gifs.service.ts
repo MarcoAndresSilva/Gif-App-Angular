@@ -4,7 +4,7 @@ import { environment } from 'src/environments/environment';
 import type  { GiphyResponse } from '../interfaces/giphy.interfaces';
 import type { Gif } from '../interfaces/gif.interface';
 import { GifMapper } from '../mapper/gif.mapper';
-import { map, tap } from 'rxjs';
+import { map, Observable, tap } from 'rxjs';
 
 @Injectable({providedIn: 'root'})
 
@@ -40,7 +40,7 @@ export class GifService {
         });
     };  
     
-    searchGifs(query: string){
+    searchGifs(query: string):Observable<Gif[]>{
         return this.http
         .get<GiphyResponse>(`${environment.giphyUrl}/gifs/search`,{
             params: {
@@ -62,4 +62,8 @@ export class GifService {
         );
 
     };
+
+    getHistoryGifs(query: string): Gif[] {
+        return this.searchHistory()[query] ?? []
+    } 
 }
