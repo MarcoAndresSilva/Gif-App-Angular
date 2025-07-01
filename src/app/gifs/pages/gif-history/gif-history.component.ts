@@ -1,7 +1,7 @@
-import { GifService } from 'src/app/gifs/services/gifs.service';
-import { Gif } from './../../interfaces/gif.interface';
 import {Component, computed, inject, signal } from '@angular/core';
-
+import { toSignal } from '@angular/core/rxjs-interop';
+import { ActivatedRoute } from '@angular/router';
+import { map } from 'rxjs';
 @Component({
   selector: 'app-gif-history',
   imports: [],
@@ -9,9 +9,8 @@ import {Component, computed, inject, signal } from '@angular/core';
 
 })
 export default class GifHistoryComponent { 
-  GifService = inject(GifService);
-  gifHistory = computed(() => this.GifService.searchHistory());
 
-
-  
+  query = toSignal(
+    inject(ActivatedRoute).params.pipe(map((params) => params['query']))
+  );
 }
