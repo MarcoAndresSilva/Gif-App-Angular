@@ -28,8 +28,6 @@ export class GifService {
 
     constructor() {
         this.loadTrendingGifs();
-        console.log({searchHistory: this.searchHistory()});
-        
     }
 
     saveGifsToLocalStorage = effect(() => {
