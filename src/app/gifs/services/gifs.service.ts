@@ -23,6 +23,11 @@ export class GifService {
     trendingGifs = signal<Gif[]>([]);
     trendingGifsLoading = signal(true);
 
+    //[[gif,gif,gif],[gif,gif,gif],[gif,gif,gif]]
+    trendingGifsGrouped = computed(() => {
+        
+    })
+
     searchHistory = signal<Record<string, Gif[]>>(loadFromLocalStorage());
     searchHistoryKeys = computed(() => Object.keys(this.searchHistory())) ;  
 
