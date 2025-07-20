@@ -12,10 +12,12 @@ export default class TrendingPageComponent {
 
   gifService = inject(GifService);
 
-  scrolldivRef = viewChild<ElementRef>('groupDiv');
+  scrollDivRef = viewChild<ElementRef>('groupDiv');
 
   onScroll(event: Event){
-    console.log(event);
+  const scrollDiv = this.scrollDivRef()?.nativeElement;
+
+    console.log(scrollDiv);
 
   }
 }
