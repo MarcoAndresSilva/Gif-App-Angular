@@ -1,4 +1,4 @@
-import { Component, signal, inject, computed } from '@angular/core';
+import { Component, signal, inject, computed, viewChild, ElementRef } from '@angular/core';
 import { GifListComponent } from "../../components/gif-list/gif-list.component";
 import { GifService } from './../../services/gifs.service';
 
@@ -9,5 +9,13 @@ import { GifService } from './../../services/gifs.service';
 })
 
 export default class TrendingPageComponent {
+
   gifService = inject(GifService);
+
+  scrolldivRef = viewChild<ElementRef>('groupDiv');
+
+  onScroll(event: Event){
+    console.log(event);
+
+  }
 }
