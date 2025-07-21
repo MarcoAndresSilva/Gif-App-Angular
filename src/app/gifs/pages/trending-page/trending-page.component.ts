@@ -4,7 +4,7 @@ import { GifService } from './../../services/gifs.service';
 
 @Component({
   selector: 'app-trending-page',
-  imports: [GifListComponent],
+  // imports: [GifListComponent],
   templateUrl: './trending-page.component.html',
 })
 
@@ -12,12 +12,19 @@ export default class TrendingPageComponent {
 
   gifService = inject(GifService);
 
-  scrollDivRef = viewChild<ElementRef>('groupDiv');
+  scrollDivRef = viewChild<ElementRef<HTMLDivElement>>('groupDiv');
 
   onScroll(event: Event){
-  const scrollDiv = this.scrollDivRef()?.nativeElement;
+    const scrollDiv = this.scrollDivRef()?.nativeElement;
+    if(!scrollDiv) return;
 
-    console.log(scrollDiv);
+    const scrollTop = scrollDiv.scrollTop;
+    const scrollHeight = scrollDiv.scrollHeight;
+    const clientHeight = scrollDiv.clientHeight;    
+    const scrollBottom = scrollTop + clientHeight;
+
+    console.log({scrollTop, scrollHeight, clientHeight, scrollBottom});
+    
 
   }
 }
