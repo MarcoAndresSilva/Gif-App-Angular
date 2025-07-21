@@ -18,12 +18,13 @@ export default class TrendingPageComponent {
     const scrollDiv = this.scrollDivRef()?.nativeElement;
     if(!scrollDiv) return;
 
-    const scrollTop = scrollDiv.scrollTop;
-    const scrollHeight = scrollDiv.scrollHeight;
-    const clientHeight = scrollDiv.clientHeight;    
-    const scrollBottom = scrollTop + clientHeight;
+    const scrollTop = scrollDiv.scrollTop; // determinar el viewpoint
+    const scrollHeight = scrollDiv.scrollHeight; // cuanto el usuario ha hecoh scroll
+    const clientHeight = scrollDiv.clientHeight;
 
-    console.log({scrollTop, scrollHeight, clientHeight, scrollBottom});
+    const isAtBottom = scrollTop + clientHeight + 300 >= scrollHeight;
+
+    console.log({isAtBottom});
     
 
   }
