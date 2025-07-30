@@ -21,7 +21,7 @@ export class GifService {
     private http = inject(HttpClient);
 
     trendingGifs = signal<Gif[]>([]);
-    trendingGifsIsLoading = signal(true);
+    trendingGifsIsLoading = signal(false);
     private trendingGifsPage = signal(0);
 
     //[[gif,gif,gif],[gif,gif,gif],[gif,gif,gif]]
@@ -56,18 +56,19 @@ export class GifService {
         this.trendingGifsIsLoading.set(true); // significa que entro la peticion
 
         this.http
-        .get<GiphyResponse>(`${environment.giphyUrl}/gifs/trending`,{
-            params: {
-                api_key: environment.giphyApiKey,
-                limit: 20,
-                offset: this.trendingGifsPage() * 20
-            },
-        })
-        .subscribe((resp) => {
-            const gifs = GifMapper.mapGiphyItemToGifArray(resp.data);
-            this.trendingGifs.update((currentGifs) => [...currentGifs, ...gifs]); 
-            this.trendingGifsIsLoading.set(false);
-        });
+            .get<GiphyResponse>(`${environment.giphyUrl}/gifs/trending`,{
+                params: {
+                    api_key: environment.giphyApiKey,
+                    limit: 20,
+                    offset: this.trendingGifsPage() * 20
+                },
+            })
+            .subscribe((resp) => {
+                const gifs = GifMapper.mapGiphyItemToGifArray(resp.data);
+                this.trendingGifs.update(currentGifs => [...currentGifs, ...gifs]); //voy a esparcir lso gifs actuales y los nuevos
+                this.trendingGifsPage.update(page => page + 1);
+                this.trendingGifsIsLoading.set(false);
+            });
     };  
     
     searchGifs(query: string):Observable<Gif[]>{
